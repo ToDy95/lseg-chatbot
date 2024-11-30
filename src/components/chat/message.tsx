@@ -6,10 +6,10 @@ import {
   setClicked,
 } from '@/redux/reducers/messageSlice';
 import { messagesSelector } from '@/redux/selectors/messageSelectors';
-import { MessageSender } from './messageSender';
+import { MessageBox } from './messageBox';
 import { Message } from '@/redux/reducers/message';
 import { AppDispatch } from '@/redux/store';
-
+import { Button } from '@/components/ui/button';
 export type MessageLayoutProps = {
   message: string;
   direction: 'incoming' | 'outcoming';
@@ -45,23 +45,23 @@ const MessageLayout = ({
       className={`flex gap-2 mb-4 items-end ${
         direction === 'incoming' ? 'justify-start' : 'justify-end'
       }`}>
-      <MessageSender direction={direction}>
+      <MessageBox direction={direction}>
         {options && options.length > 0 ? (
           <div className="flex flex-col gap-1">
             <div>{message}</div>
             {options.map((option, index) => (
-              <button
+              <Button
                 key={index}
                 onClick={() => handlerClick(option)}
                 className="bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600">
                 {option}
-              </button>
+              </Button>
             ))}
           </div>
         ) : (
           message
         )}
-      </MessageSender>
+      </MessageBox>
     </div>
   );
 };

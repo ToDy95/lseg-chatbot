@@ -5,7 +5,7 @@ type MessageSenderProps = {
   direction: 'incoming' | 'outcoming';
   children: React.ReactNode;
 };
-const MessageSender = ({ direction, children }: MessageSenderProps) => {
+const MessageBox = ({ direction, children }: MessageSenderProps) => {
   return (
     <React.Fragment>
       {direction === 'incoming' && (
@@ -21,4 +21,4 @@ const MessageSender = ({ direction, children }: MessageSenderProps) => {
   );
 };
 
-export { MessageSender };
+export { MessageBox };
